@@ -1,0 +1,51 @@
+address_book = {}
+
+def add_contact():
+    name = input("Enter Name: ")
+    phone = input("Enter Phone Number: ")
+    address_book[name] = phone
+    print("Contact Added!\n")
+
+def view_contacts():
+    print("\n--- All Contacts ---")
+    for name, phone in address_book.items():
+        print("Name:", name, "| Phone:", phone)
+    print()
+
+def search_contact():
+    name = input("Enter Name to Search: ")
+    if name in address_book:
+        print("Found:", name, "Phone:", address_book[name], "\n")
+    else:
+        print("Contact Not Found.\n")
+
+def delete_contact():
+    name = input("Enter Name to Delete: ")
+    if name in address_book:
+        del address_book[name]
+        print("Contact Deleted.\n")
+    else:
+        print("No Such Contact.\n")
+
+while True:
+    print("1. Add Contact")
+    print("2. View Contacts")
+    print("3. Search Contact")
+    print("4. Delete Contact")
+    print("5. Exit")
+
+    choice = input("Enter Your Choice: ")
+
+    if choice == "1":
+        add_contact()
+    elif choice == "2":
+        view_contacts()
+    elif choice == "3":
+        search_contact()
+    elif choice == "4":
+        delete_contact()
+    elif choice == "5":
+        print("Thank You!")
+        break
+    else:
+        print("Invalid Choice\n")
